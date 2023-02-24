@@ -14,7 +14,7 @@ by Patrick Salsbury (psalsbury@ucsd.edu) & Pukhraj Falak (pfalak@ucsd.edu)
 
 ## Introduction
 
-**[TEMP]** In this project, we examined how the calories, total fat, and protein impacted the rating of different recipes.
+**TEMP** In this project, we examined how the calories, total fat, and protein impacted the rating of different recipes.
 
 ---
 
