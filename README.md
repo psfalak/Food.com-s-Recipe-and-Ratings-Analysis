@@ -20,7 +20,7 @@ by Patrick Salsbury (psalsbury@ucsd.edu) & Pukhraj Falak (pfalak@ucsd.edu)
 
 ## Cleaning and EDA
 
-<!-- <iframe src="assets/10-80-enrollment.html" width=800 height=600 frameBorder=0></iframe> -->
+<iframe src="assets/10-80-enrollment.html" width=800 height=600 frameBorder=0></iframe>
 #### Plots will go here along with analysis for the plots.
 
 ---
