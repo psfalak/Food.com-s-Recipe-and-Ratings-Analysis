@@ -2,7 +2,7 @@
 
 This repository shows analysis conducted by Pukhraj Falak and Patrick Salsbury
 
-This is to test that the file is working correctly  -->
+<!-- This is to test that the file is working correctly  --> -->
 # Recipe and Ratings Analysis
 
 by Patrick Salsbury (psalsbury@ucsd.edu) & Pukhraj Falak (pfalak@ucsd.edu)
@@ -19,6 +19,10 @@ by Patrick Salsbury (psalsbury@ucsd.edu) & Pukhraj Falak (pfalak@ucsd.edu)
 ---
 
 ## Cleaning and EDA
+
+```py
+print(recipes_cleaned.head().to_markdown(index=False))
+```
 
 <iframe src="assets/Hist_Box_nsteps.html" width=800 height=600 frameBorder=0></iframe>
 #### Plots will go here along with analysis for the plots.
