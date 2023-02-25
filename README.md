@@ -387,9 +387,12 @@ However, this inclined us to investigate a possible relationship between the yea
 
 To wrap up our analysis, we decided to go back and fully answer our original question: Is there a relationship between the number of reviews missing and the year that the reivew was submitted in?
 In order to test whether or not this is true, we will set up a hypothesis test to compare the difference in means of ratings of 2016, 2017 and 2018 compared to the rest of the population. That being said, we can define our alternative hypothesis as:
+
 **Null Hypothesis**:  the average of ratings from the years 2016, 2017, and 2018 = average of ratings from all other years
-**Alternative Hypothesis**:  the average of ratings from the years 2016, 2017, and 2018 < average of ratings from all other years
-the significance level will be at the 99% confidence level threshold so an alpha value of 0.01.
+
+**Alternative Hypothesis**:  the average of ratings from the years 2016, 2017, and 2018 < average of ratings from all other years.
+
+The significance level will be at the 99% confidence level threshold so an alpha value of 0.01.
 
 For our test statistic we will use the difference in means because we are trying to compare the means of a sample to the rest of the population. Since we want to test if the ratings in 2016, 2017, and 2018 are significantly lower, we will not use the absolute in means because the direction of the test is important.
 
