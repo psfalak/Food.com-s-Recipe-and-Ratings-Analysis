@@ -31,210 +31,27 @@ The first step in our data cleaning process was to address the nan values presen
 ```py
 print(recipes_cleaned.head().to_markdown(index=False))
 ```
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>recipe_id</th>
-      <th>author_id</th>
-      <th>recipe_name</th>
-      <th>recipe_submitted_date</th>
-      <th>recipe_submitted_year</th>
-      <th>recipe_submitted_month</th>
-      <th>recipe_submitted_dow</th>
-      <th>cooking_minutes</th>
-      <th>steps</th>
-      <th>n_steps</th>
-      <th>ingredients</th>
-      <th>n_ingredients</th>
-      <th>tags</th>
-      <th>n_tags</th>
-      <th>calories</th>
-      <th>total_fat</th>
-      <th>protein</th>
-      <th>sugar_data</th>
-      <th>sodium</th>
-      <th>sat_fat</th>
-      <th>carbs</th>
-      <th>description</th>
-      <th>reviewer_id</th>
-      <th>rating</th>
-      <th>reviewed_submitted_date</th>
-      <th>reviewed_submitted_year</th>
-      <th>reviewed_submitted_month</th>
-      <th>reviewed_submitted_dow</th>
-      <th>review</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>333281</td>
-      <td>985201</td>
-      <td>1 brownies in the world    best ever</td>
-      <td>2008-10-27</td>
-      <td>2008</td>
-      <td>October</td>
-      <td>Sunday</td>
-      <td>40</td>
-      <td>['heat the oven to 350f and arrange the rack in the middle', 'line an 8-by-8-inch glass baking dish with aluminum foil', 'combine chocolate and butter in a medium saucepan and cook over medium-low heat , stirring frequently , until evenly melted', 'remove from heat and let cool to room temperature', 'combine eggs , sugar , cocoa powder , vanilla extract , espresso , and salt in a large bowl and briefly stir until just evenly incorporated', 'add cooled chocolate and mix until uniform in color', 'add flour and stir until just incorporated', 'transfer batter to the prepared baking dish', 'bake until a tester inserted in the center of the brownies comes out clean , about 25 to 30 minutes', 'remove from the oven and cool completely before cutting']</td>
-      <td>10</td>
-      <td>['bittersweet chocolate', 'unsalted butter', 'eggs', 'granulated sugar', 'unsweetened cocoa powder', 'vanilla extract', 'brewed espresso', 'kosher salt', 'all-purpose flour']</td>
-      <td>9</td>
-      <td>['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'for-large-groups', 'desserts', 'lunch', 'snacks', 'cookies-and-brownies', 'chocolate', 'bar-cookies', 'brownies', 'number-of-servings']</td>
-      <td>14</td>
-      <td>138.4</td>
-      <td>10.0</td>
-      <td>3.0</td>
-      <td>50.0</td>
-      <td>3.0</td>
-      <td>19.0</td>
-      <td>6.0</td>
-      <td>these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you'll ever make.....sereiously! there's no doubt that these will be your fav brownies ever for you can add things to them or make them plain.....either way they're pure heaven!</td>
-      <td>386585</td>
-      <td>4.0</td>
-      <td>2008-11-19</td>
-      <td>2008</td>
-      <td>November</td>
-      <td>Tuesday</td>
-      <td>These were pretty good, but took forever to bake.  I would send it ended up being almost an hour!  Even then, the brownies stuck to the foil, and were on the overly moist side and not easy to cut.  They did taste quite rich, though!  Made for My 3 Chefs.</td>
-    </tr>
-    <tr>
-      <td>453467</td>
-      <td>1848091</td>
-      <td>1 in canada chocolate chip cookies</td>
-      <td>2011-04-11</td>
-      <td>2011</td>
-      <td>April</td>
-      <td>Sunday</td>
-      <td>45</td>
-      <td>['pre-heat oven the 350 degrees f', 'in a mixing bowl , sift together the flours and baking powder', 'set aside', 'in another mixing bowl , blend together the sugars , margarine , and salt until light and fluffy', 'add the eggs , water , and vanilla to the margarine / sugar mixture and mix together until well combined', 'add in the flour mixture to the wet ingredients and blend until combined', 'scrape down the sides of the bowl and add the chocolate chips', 'mix until combined', 'scrape down the sides to the bowl again', 'using an ice cream scoop , scoop evenly rounded balls of dough and place of cookie sheet about 1 - 2 inches apart to allow for spreading during baking', 'bake for 10 - 15 minutes or until golden brown on the outside and soft &amp; chewy in the center', 'serve hot and enjoy !']</td>
-      <td>12</td>
-      <td>['white sugar', 'brown sugar', 'salt', 'margarine', 'eggs', 'vanilla', 'water', 'all-purpose flour', 'whole wheat flour', 'baking soda', 'chocolate chips']</td>
-      <td>11</td>
-      <td>['60-minutes-or-less', 'time-to-make', 'cuisine', 'preparation', 'north-american', 'for-large-groups', 'canadian', 'british-columbian', 'number-of-servings']</td>
-      <td>9</td>
-      <td>595.1</td>
-      <td>46.0</td>
-      <td>13.0</td>
-      <td>211.0</td>
-      <td>22.0</td>
-      <td>51.0</td>
-      <td>26.0</td>
-      <td>this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best chocolate chip cookies i have ever had! if you don't have margarine or don't like it, then just use butter (softened) instead.</td>
-      <td>42468</td>
-      <td>5.0</td>
-      <td>2012-01-26</td>
-      <td>2012</td>
-      <td>January</td>
-      <td>Wednesday</td>
-      <td>Originally I was gonna cut the recipe in half (just the 2 of us here), but then we had a park-wide yard sale, &amp; I made the whole batch &amp; used them as enticements for potential buyers ~ what the hey, a free cookie as delicious as these are, definitely works its magic! Will be making these again, for sure! Thanks for posting the recipe!</td>
-    </tr>
-    <tr>
-      <td>306168</td>
-      <td>50969</td>
-      <td>412 broccoli casserole</td>
-      <td>2008-05-30</td>
-      <td>2008</td>
-      <td>May</td>
-      <td>Thursday</td>
-      <td>40</td>
-      <td>['preheat oven to 350 degrees', 'spray a 2 quart baking dish with cooking spray , set aside', 'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce', 'pour into baking dish , sprinkle remaining cheese over top', 'bake for 25 minutes or until cheese is lightly browned', 'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes']</td>
-      <td>6</td>
-      <td>['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']</td>
-      <td>9</td>
-      <td>['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']</td>
-      <td>10</td>
-      <td>194.8</td>
-      <td>20.0</td>
-      <td>22.0</td>
-      <td>6.0</td>
-      <td>32.0</td>
-      <td>36.0</td>
-      <td>3.0</td>
-      <td>since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008</td>
-      <td>29782</td>
-      <td>5.0</td>
-      <td>2008-12-31</td>
-      <td>2008</td>
-      <td>December</td>
-      <td>Tuesday</td>
-      <td>This was one of the best broccoli casseroles that I have ever made.  I made my own chicken soup for this recipe. I was a bit worried about the tsp of soy sauce but it gave the casserole the best flavor. YUM!  \nThe photos you took (shapeweaver) inspired me to make this recipe and it actually does look just like them when it comes out of the oven.  \nThanks so much for sharing your recipe shapeweaver. It was wonderful!  Going into my family's favorite Zaar cookbook :)</td>
-    </tr>
-    <tr>
-      <td>306168</td>
-      <td>50969</td>
-      <td>412 broccoli casserole</td>
-      <td>2008-05-30</td>
-      <td>2008</td>
-      <td>May</td>
-      <td>Thursday</td>
-      <td>40</td>
-      <td>['preheat oven to 350 degrees', 'spray a 2 quart baking dish with cooking spray , set aside', 'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce', 'pour into baking dish , sprinkle remaining cheese over top', 'bake for 25 minutes or until cheese is lightly browned', 'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes']</td>
-      <td>6</td>
-      <td>['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']</td>
-      <td>9</td>
-      <td>['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']</td>
-      <td>10</td>
-      <td>194.8</td>
-      <td>20.0</td>
-      <td>22.0</td>
-      <td>6.0</td>
-      <td>32.0</td>
-      <td>36.0</td>
-      <td>3.0</td>
-      <td>since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008</td>
-      <td>119628</td>
-      <td>5.0</td>
-      <td>2009-04-13</td>
-      <td>2009</td>
-      <td>April</td>
-      <td>Sunday</td>
-      <td>I made this for my son's first birthday party this weekend. Our guests INHALED it! Everyone kept saying how delicious it was. I was I could have gotten to try it.</td>
-    </tr>
-    <tr>
-      <td>306168</td>
-      <td>50969</td>
-      <td>412 broccoli casserole</td>
-      <td>2008-05-30</td>
-      <td>2008</td>
-      <td>May</td>
-      <td>Thursday</td>
-      <td>40</td>
-      <td>['preheat oven to 350 degrees', 'spray a 2 quart baking dish with cooking spray , set aside', 'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce', 'pour into baking dish , sprinkle remaining cheese over top', 'bake for 25 minutes or until cheese is lightly browned', 'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes']</td>
-      <td>6</td>
-      <td>['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']</td>
-      <td>9</td>
-      <td>['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']</td>
-      <td>10</td>
-      <td>194.8</td>
-      <td>20.0</td>
-      <td>22.0</td>
-      <td>6.0</td>
-      <td>32.0</td>
-      <td>36.0</td>
-      <td>3.0</td>
-      <td>since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008</td>
-      <td>768828</td>
-      <td>5.0</td>
-      <td>2013-08-02</td>
-      <td>2013</td>
-      <td>August</td>
-      <td>Thursday</td>
-      <td>Loved this.  Be sure to completely thaw the broccoli.  I didn&amp;#039;t and it didn&amp;#039;t get done in time specified.  Just cooked it a little longer though and it was perfect.  Thanks Chef.</td>
-    </tr>
-  </tbody>
-</table>
+|   recipe_id |   author_id | recipe_name                          | recipe_submitted_date   |   recipe_submitted_year | recipe_submitted_month   | recipe_submitted_dow   |   cooking_minutes | steps                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |   n_steps | ingredients                                                                                                                                                                    |   n_ingredients | tags                                                                                                                                                                                                                        |   n_tags |   calories |   total_fat |   protein |   sugar_data |   sodium |   sat_fat |   carbs | description                                                                                                                                                                                                                                                                                                                                                                       |   reviewer_id |   rating | reviewed_submitted_date   |   reviewed_submitted_year | reviewed_submitted_month   | reviewed_submitted_dow   | review                                                                                                                                                                                                                                                                                                                                           |
+|------------:|------------:|:-------------------------------------|:------------------------|------------------------:|:-------------------------|:-----------------------|------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------:|-----------:|------------:|----------:|-------------:|---------:|----------:|--------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------:|---------:|:--------------------------|--------------------------:|:---------------------------|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|      333281 |      985201 | 1 brownies in the world    best ever | 2008-10-27 00:00:00     |                    2008 | October                  | Sunday                 |                40 | ['heat the oven to 350f and arrange the rack in the middle', 'line an 8-by-8-inch glass baking dish with aluminum foil', 'combine chocolate and butter in a medium saucepan and cook over medium-low heat , stirring frequently , until evenly melted', 'remove from heat and let cool to room temperature', 'combine eggs , sugar , cocoa powder , vanilla extract , espresso , and salt in a large bowl and briefly stir until just evenly incorporated', 'add cooled chocolate and mix until uniform in color', 'add flour and stir until just incorporated', 'transfer batter to the prepared baking dish', 'bake until a tester inserted in the center of the brownies comes out clean , about 25 to 30 minutes', 'remove from the oven and cool completely before cutting']                                                  |        10 | ['bittersweet chocolate', 'unsalted butter', 'eggs', 'granulated sugar', 'unsweetened cocoa powder', 'vanilla extract', 'brewed espresso', 'kosher salt', 'all-purpose flour'] |               9 | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'for-large-groups', 'desserts', 'lunch', 'snacks', 'cookies-and-brownies', 'chocolate', 'bar-cookies', 'brownies', 'number-of-servings'] |       14 |      138.4 |          10 |         3 |           50 |        3 |        19 |       6 | these are the most; chocolatey, moist, rich, dense, fudgy, delicious brownies that you'll ever make.....sereiously! there's no doubt that these will be your fav brownies ever for you can add things to them or make them plain.....either way they're pure heaven!                                                                                                              |        386585 |        4 | 2008-11-19 00:00:00       |                      2008 | November                   | Tuesday                  | These were pretty good, but took forever to bake.  I would send it ended up being almost an hour!  Even then, the brownies stuck to the foil, and were on the overly moist side and not easy to cut.  They did taste quite rich, though!  Made for My 3 Chefs.                                                                                   |
+|      453467 |     1848091 | 1 in canada chocolate chip cookies   | 2011-04-11 00:00:00     |                    2011 | April                    | Sunday                 |                45 | ['pre-heat oven the 350 degrees f', 'in a mixing bowl , sift together the flours and baking powder', 'set aside', 'in another mixing bowl , blend together the sugars , margarine , and salt until light and fluffy', 'add the eggs , water , and vanilla to the margarine / sugar mixture and mix together until well combined', 'add in the flour mixture to the wet ingredients and blend until combined', 'scrape down the sides of the bowl and add the chocolate chips', 'mix until combined', 'scrape down the sides to the bowl again', 'using an ice cream scoop , scoop evenly rounded balls of dough and place of cookie sheet about 1 - 2 inches apart to allow for spreading during baking', 'bake for 10 - 15 minutes or until golden brown on the outside and soft & chewy in the center', 'serve hot and enjoy !'] |        12 | ['white sugar', 'brown sugar', 'salt', 'margarine', 'eggs', 'vanilla', 'water', 'all-purpose flour', 'whole wheat flour', 'baking soda', 'chocolate chips']                    |              11 | ['60-minutes-or-less', 'time-to-make', 'cuisine', 'preparation', 'north-american', 'for-large-groups', 'canadian', 'british-columbian', 'number-of-servings']                                                               |        9 |      595.1 |          46 |        13 |          211 |       22 |        51 |      26 | this is the recipe that we use at my school cafeteria for chocolate chip cookies. they must be the best chocolate chip cookies i have ever had! if you don't have margarine or don't like it, then just use butter (softened) instead.                                                                                                                                            |         42468 |        5 | 2012-01-26 00:00:00       |                      2012 | January                    | Wednesday                | Originally I was gonna cut the recipe in half (just the 2 of us here), but then we had a park-wide yard sale, & I made the whole batch & used them as enticements for potential buyers ~ what the hey, a free cookie as delicious as these are, definitely works its magic! Will be making these again, for sure! Thanks for posting the recipe! |
+|      306168 |       50969 | 412 broccoli casserole               | 2008-05-30 00:00:00     |                    2008 | May                      | Thursday               |                40 | ['preheat oven to 350 degrees', 'spray a 2 quart baking dish with cooking spray , set aside', 'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce', 'pour into baking dish , sprinkle remaining cheese over top', 'bake for 25 minutes or until cheese is lightly browned', 'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes']                                                                                                                                                                                                                                                                                                                              |         6 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |               9 | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']                                                                        |       10 |      194.8 |          20 |        22 |            6 |       32 |        36 |       3 | since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008 |         29782 |        5 | 2008-12-31 00:00:00       |                      2008 | December                   | Tuesday                  | This was one of the best broccoli casseroles that I have ever made.  I made my own chicken soup for this recipe. I was a bit worried about the tsp of soy sauce but it gave the casserole the best flavor. YUM!                                                                                                                                  |
+|             |             |                                      |                         |                         |                          |                        |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |           |                                                                                                                                                                                |                 |                                                                                                                                                                                                                             |          |            |             |           |              |          |           |         |                                                                                                                                                                                                                                                                                                                                                                                   |               |          |                           |                           |                            |                          | The photos you took (shapeweaver) inspired me to make this recipe and it actually does look just like them when it comes out of the oven.                                                                                                                                                                                                        |
+|             |             |                                      |                         |                         |                          |                        |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |           |                                                                                                                                                                                |                 |                                                                                                                                                                                                                             |          |            |             |           |              |          |           |         |                                                                                                                                                                                                                                                                                                                                                                                   |               |          |                           |                           |                            |                          | Thanks so much for sharing your recipe shapeweaver. It was wonderful!  Going into my family's favorite Zaar cookbook :)                                                                                                                                                                                                                          |
+|      306168 |       50969 | 412 broccoli casserole               | 2008-05-30 00:00:00     |                    2008 | May                      | Thursday               |                40 | ['preheat oven to 350 degrees', 'spray a 2 quart baking dish with cooking spray , set aside', 'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce', 'pour into baking dish , sprinkle remaining cheese over top', 'bake for 25 minutes or until cheese is lightly browned', 'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes']                                                                                                                                                                                                                                                                                                                              |         6 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |               9 | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']                                                                        |       10 |      194.8 |          20 |        22 |            6 |       32 |        36 |       3 | since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008 |        119628 |        5 | 2009-04-13 00:00:00       |                      2009 | April                      | Sunday                   | I made this for my son's first birthday party this weekend. Our guests INHALED it! Everyone kept saying how delicious it was. I was I could have gotten to try it.                                                                                                                                                                               |
+|      306168 |       50969 | 412 broccoli casserole               | 2008-05-30 00:00:00     |                    2008 | May                      | Thursday               |                40 | ['preheat oven to 350 degrees', 'spray a 2 quart baking dish with cooking spray , set aside', 'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce', 'pour into baking dish , sprinkle remaining cheese over top', 'bake for 25 minutes or until cheese is lightly browned', 'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes']                                                                                                                                                                                                                                                                                                                              |         6 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |               9 | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']                                                                        |       10 |      194.8 |          20 |        22 |            6 |       32 |        36 |       3 | since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008 |        768828 |        5 | 2013-08-02 00:00:00       |                      2013 | August                     | Thursday                 | Loved this.  Be sure to completely thaw the broccoli.  I didn&#039;t and it didn&#039;t get done in time specified.  Just cooked it a little longer though and it was perfect.  Thanks Chef.                                                                                                                                                     |
 
 ### Univariate Analysis 
 <body>
     <iframe src="assets/Histogram-Boxplot_of_calories.html" width=800 height=600 frameBorder=0></iframe>
-        <p>For our univariate analysis, we decided to look at the distribution of calories for all the recipes. We were curious to see if there most of the recipes consisted of low/high calorie meals. We can see from this plot, most of the recipes were in fact relatively low in calories, as more than half of our data was less than 300 calories. Noticing this trend, we thought it would be interesting to see if there was a trend with the rating for recipes and the amount of calories it contained.</p>
+        <p>For our univariate analysis, one of the variables we decided to look at was the distribution of calories across all recipes. We were curious to see how  the number of calories were distributed with regards to all the population of recipes. As a result, we can see from this plot that most of the recipes were in fact relatively low in calories, as more than half of our data was less than 300 calories. Noticing this trend, we thought it would be interesting to see if there was a trend with the rating for recipes and the amount of calories it contained.</p>
     <iframe src="assets/Violinplot_of_calories.html" width=800 height=600 frameBorder=0></iframe>
         <p>We created a violin plot to analyze the distribution of the different ratings. As we can see from the plot, there doesn't seem to be any clear trend between rating and the amount of calories.</p>
 </body>
 
 ### Bivariate Analysis
 <body>
-    <p>For our bivariate analysis, we wanted to get some more insight before we conduct a hypothesis test on our question. We decided to look at the propotion of ratings per year. We wanted to see if there was a significantly larger amount of ratings in a particular year, as well more of a particular rating in a certain year. Let's take a look at our findings.</p>
+    <p>For our bivariate analysis, we wanted to get some more insight on our variables before we conducted a hypothesis test to answer our question. One bivariate analysis we decided to look at the proportion of different ratings per year. We wanted to see if there was a significantly larger amount of a type of in a particular year compard to others. Let's take a look at our findings.</p>
     <iframe src="assets/Proportion_of_Ratings_per_Year2.html" width=800 height=600 frameBorder=0></iframe>
         <p>It is clear that the number of 5 star ratings is significantly higher than any other rating for every single year! Not only that, but we can see the amount of 1 star rating become more apparent as the years go on. For example, 2018 had a lot more one star ratings than 2008 did. </p>
     <iframe src="assets/Proportion_of_Ratings_per_Year3.html" width=800 height=600 frameBorder=0></iframe>
