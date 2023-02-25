@@ -375,7 +375,9 @@ For our missingness, we chose to analyze the missingness in the 'reviews' column
 After obtaining the results of our test, we see that there were enough test statistics in the direction as extreme of our observed statistic with a p-value of 0.96. At a significance level of 0.05, we inevitably fail to reject our hypothesis that the missing reviews depended on the recipe_id.
 
 Another variable we decided to test was the year the review was submitted.
-    <iframe src="assets/year_reviews.html" width=800 height=600 frameBorder=0></iframe>
+
+<iframe src="assets/year_reviews.html" width=800 height=600 frameBorder=0></iframe>
+
 As a result, we obtianed a p-value of 0 which means that the reviews missing does depend on another column - in this case the year the reviews were submitted. There could be an infinite amount of confounding variables that contribute to this, but hypothesized that maybe after a certain year, food.com allowed users to not be forced to leave a description for their review.
 
 However, this inclined us to investigate a possible relationship between the year the recipe was submitted and the review that it recieved. 
