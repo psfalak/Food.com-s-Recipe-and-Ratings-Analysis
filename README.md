@@ -28,6 +28,23 @@ We will be interested in the 'rating' column, which consists of a reviewers rati
 
 ## Cleaning and EDA
 
+### Data Cleaning 
+The first step in our data cleaning process was to address the nan values present.
+Although description and review had a significant number of nan values, we chose to focus on
+the other columns with nans because we hypothesized that there are underlying
+missing mechanisms present with description and review. Therefore, we ended up 
+dropping rows and filling in entries with placeholder values in order to ensure
+our analysis can continue. Afterwards we converted all of the columns into their
+correct datatypes respectively so we can correctly analyze the data later on. For
+columns like date and submitted, we decided to extract the year, month, and 
+day-of-week into their own columns so we can investigate possible relationships
+later on. Similarily, we extracted the macronutrients individually from the
+nutrition column into their own columns respectively as well. Finally, just to 
+make our project easier, we created our own naming convention for the columns and 
+also changed the order of the columns just so it is easier to refer to intuitively.
+
+
+
 ```py
 print(recipes_cleaned.head().to_markdown(index=False))
 ```
@@ -51,6 +68,20 @@ print(recipes_cleaned.head().to_markdown(index=False))
 
 
 ### Interesting Aggregates
+
+
+```py
+print(recipes_temp_eda.head().to_markdown(index=False))
+```
+
+
+|   recipe_submitted_year |   rating |   count |   proportion |
+|------------------------:|---------:|--------:|-------------:|
+|                    2008 |        1 |    1110 |    0.0121043 |
+|                    2009 |        1 |     707 |    0.0119525 |
+|                    2010 |        1 |     340 |    0.0121668 |
+|                    2011 |        1 |     211 |    0.0131105 |
+|                    2012 |        1 |     204 |    0.0173322 |
 
 ---
 
@@ -110,6 +141,7 @@ After running our test, the distribution of the test statistics looked like this
 According to the results of our hypothesis test, we obtained a p-value of 0 which means that the probability that we obtained a test statistic under the null hypothesis as extreme in the direction of our alternative hypothesis is 0. That being said, we reject our null hypothesis that 2016, 2017, and 2018 recipes received average ratings as low as the rest of the population of recipes from other years.
 
 
-#### Back to our question : What types of recipes tend to have higher average ratings?
+** Back to our question : What types of recipes tend to have higher average ratings? **
+
 As we originally observed from our EDA process and what we concluded from our hypothesis test, it appears that recipes from 2016, 2017 and 2018 scored lower ratings on average. That being said, this helps us answer our question because now we can observe that recipes that were submitted prior to 2016 tended to have higher average rating scores. Although we unfortunately can't isolate the reason why this is happening due to the number of confounding variables, it can help motivate another future step in this project to evaluate this phenomenon. If we also consider the number of reviews over the years, we observe a constant decrease in the number of reviews submitted since 2008. This additional piece of information could also help us analyze food.com's consumer base and possibly reveal other trends.
 ---
