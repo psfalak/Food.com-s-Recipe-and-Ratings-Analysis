@@ -31,19 +31,298 @@ The first step in our data cleaning process was to address the nan values presen
 ```py
 print(recipes_cleaned.head().to_markdown(index=False))
 ```
-|   recipe_id |   author_id | recipe_name                          | recipe_submitted_date   |   recipe_submitted_year | recipe_submitted_month   | recipe_submitted_dow   |   cooking_minutes |   n_steps |   n_ingredients |   n_tags |   calories |   total_fat |   protein |   sugar_data |   sodium |   sat_fat |   carbs |   reviewer_id |   rating | reviewed_submitted_date   |   reviewed_submitted_year | reviewed_submitted_month   | reviewed_submitted_dow   |
-|------------:|------------:|:-------------------------------------|:------------------------|------------------------:|:-------------------------|:-----------------------|------------------:|----------:|----------------:|---------:|-----------:|------------:|----------:|-------------:|---------:|----------:|--------:|--------------:|---------:|:--------------------------|--------------------------:|:---------------------------|:-------------------------|
-|      333281 |      985201 | 1 brownies in the world    best ever | 2008-10-27 00:00:00     |                    2008 | October                  | Sunday                 |                40 |        10 |               9 |       14 |      138.4 |          10 |         3 |           50 |        3 |        19 |       6 |        386585 |        4 | 2008-11-19 00:00:00       |                      2008 | November                   | Tuesday                  |
-|      453467 |     1848091 | 1 in canada chocolate chip cookies   | 2011-04-11 00:00:00     |                    2011 | April                    | Sunday                 |                45 |        12 |              11 |        9 |      595.1 |          46 |        13 |          211 |       22 |        51 |      26 |         42468 |        5 | 2012-01-26 00:00:00       |                      2012 | January                    | Wednesday                |
-|      306168 |       50969 | 412 broccoli casserole               | 2008-05-30 00:00:00     |                    2008 | May                      | Thursday               |                40 |         6 |               9 |       10 |      194.8 |          20 |        22 |            6 |       32 |        36 |       3 |         29782 |        5 | 2008-12-31 00:00:00       |                      2008 | December                   | Tuesday                  |
-|      306168 |       50969 | 412 broccoli casserole               | 2008-05-30 00:00:00     |                    2008 | May                      | Thursday               |                40 |         6 |               9 |       10 |      194.8 |          20 |        22 |            6 |       32 |        36 |       3 |        119628 |        5 | 2009-04-13 00:00:00       |                      2009 | April                      | Sunday                   |
-|      306168 |       50969 | 412 broccoli casserole               | 2008-05-30 00:00:00     |                    2008 | May                      | Thursday               |                40 |         6 |               9 |       10 |      194.8 |          20 |        22 |            6 |       32 |        36 |       3 |        768828 |        5 | 2013-08-02 00:00:00       |                      2013 | August                     | Thursday                 |
-|      306168 |       50969 | 412 broccoli casserole               | 2008-05-30 00:00:00     |                    2008 | May                      | Thursday               |                40 |         6 |               9 |       10 |      194.8 |          20 |        22 |            6 |       32 |        36 |       3 |         52083 |        5 | 2017-10-17 00:00:00       |                      2017 | October                    | Monday                   |
-|      286009 |      461724 | millionaire pound cake               | 2008-02-12 00:00:00     |                    2008 | February                 | Monday                 |               120 |         7 |               7 |       20 |      878.3 |          63 |        20 |          326 |       13 |       123 |      39 |        813055 |        5 | 2008-04-09 00:00:00       |                      2008 | April                      | Tuesday                  |
-|      475785 |     2202916 | 2000 meatloaf                        | 2012-03-06 00:00:00     |                    2012 | March                    | Monday                 |                90 |        17 |              13 |       10 |      267   |          30 |        29 |           12 |       12 |        48 |       2 |       2204364 |        5 | 2012-03-07 00:00:00       |                      2012 | March                      | Tuesday                  |
-|      475785 |     2202916 | 2000 meatloaf                        | 2012-03-06 00:00:00     |                    2012 | March                    | Monday                 |                90 |        17 |              13 |       10 |      267   |          30 |        29 |           12 |       12 |        48 |       2 |        221672 |        5 | 2012-03-21 00:00:00       |                      2012 | March                      | Tuesday                  |
-|      500166 |     2549237 | 5 tacos                              | 2013-05-13 00:00:00     |                    2013 | May                      | Sunday                 |                20 |         5 |               9 |       26 |      249.4 |          26 |        39 |            4 |        6 |        39 |       0 |        369715 |        4 | 2013-06-13 00:00:00       |                      2013 | June                       | Wednesday                |
-
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>recipe_id</th>
+      <th>author_id</th>
+      <th>recipe_name</th>
+      <th>recipe_submitted_date</th>
+      <th>recipe_submitted_year</th>
+      <th>recipe_submitted_month</th>
+      <th>recipe_submitted_dow</th>
+      <th>cooking_minutes</th>
+      <th>n_steps</th>
+      <th>n_ingredients</th>
+      <th>n_tags</th>
+      <th>calories</th>
+      <th>total_fat</th>
+      <th>protein</th>
+      <th>sugar_data</th>
+      <th>sodium</th>
+      <th>sat_fat</th>
+      <th>carbs</th>
+      <th>reviewer_id</th>
+      <th>rating</th>
+      <th>reviewed_submitted_date</th>
+      <th>reviewed_submitted_year</th>
+      <th>reviewed_submitted_month</th>
+      <th>reviewed_submitted_dow</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>333281</td>
+      <td>985201</td>
+      <td>1 brownies in the world    best ever</td>
+      <td>2008-10-27</td>
+      <td>2008</td>
+      <td>October</td>
+      <td>Sunday</td>
+      <td>40</td>
+      <td>10</td>
+      <td>9</td>
+      <td>14</td>
+      <td>138.4</td>
+      <td>10.0</td>
+      <td>3.0</td>
+      <td>50.0</td>
+      <td>3.0</td>
+      <td>19.0</td>
+      <td>6.0</td>
+      <td>386585</td>
+      <td>4.0</td>
+      <td>2008-11-19</td>
+      <td>2008</td>
+      <td>November</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <td>453467</td>
+      <td>1848091</td>
+      <td>1 in canada chocolate chip cookies</td>
+      <td>2011-04-11</td>
+      <td>2011</td>
+      <td>April</td>
+      <td>Sunday</td>
+      <td>45</td>
+      <td>12</td>
+      <td>11</td>
+      <td>9</td>
+      <td>595.1</td>
+      <td>46.0</td>
+      <td>13.0</td>
+      <td>211.0</td>
+      <td>22.0</td>
+      <td>51.0</td>
+      <td>26.0</td>
+      <td>42468</td>
+      <td>5.0</td>
+      <td>2012-01-26</td>
+      <td>2012</td>
+      <td>January</td>
+      <td>Wednesday</td>
+    </tr>
+    <tr>
+      <td>306168</td>
+      <td>50969</td>
+      <td>412 broccoli casserole</td>
+      <td>2008-05-30</td>
+      <td>2008</td>
+      <td>May</td>
+      <td>Thursday</td>
+      <td>40</td>
+      <td>6</td>
+      <td>9</td>
+      <td>10</td>
+      <td>194.8</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>6.0</td>
+      <td>32.0</td>
+      <td>36.0</td>
+      <td>3.0</td>
+      <td>29782</td>
+      <td>5.0</td>
+      <td>2008-12-31</td>
+      <td>2008</td>
+      <td>December</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <td>306168</td>
+      <td>50969</td>
+      <td>412 broccoli casserole</td>
+      <td>2008-05-30</td>
+      <td>2008</td>
+      <td>May</td>
+      <td>Thursday</td>
+      <td>40</td>
+      <td>6</td>
+      <td>9</td>
+      <td>10</td>
+      <td>194.8</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>6.0</td>
+      <td>32.0</td>
+      <td>36.0</td>
+      <td>3.0</td>
+      <td>119628</td>
+      <td>5.0</td>
+      <td>2009-04-13</td>
+      <td>2009</td>
+      <td>April</td>
+      <td>Sunday</td>
+    </tr>
+    <tr>
+      <td>306168</td>
+      <td>50969</td>
+      <td>412 broccoli casserole</td>
+      <td>2008-05-30</td>
+      <td>2008</td>
+      <td>May</td>
+      <td>Thursday</td>
+      <td>40</td>
+      <td>6</td>
+      <td>9</td>
+      <td>10</td>
+      <td>194.8</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>6.0</td>
+      <td>32.0</td>
+      <td>36.0</td>
+      <td>3.0</td>
+      <td>768828</td>
+      <td>5.0</td>
+      <td>2013-08-02</td>
+      <td>2013</td>
+      <td>August</td>
+      <td>Thursday</td>
+    </tr>
+    <tr>
+      <td>306168</td>
+      <td>50969</td>
+      <td>412 broccoli casserole</td>
+      <td>2008-05-30</td>
+      <td>2008</td>
+      <td>May</td>
+      <td>Thursday</td>
+      <td>40</td>
+      <td>6</td>
+      <td>9</td>
+      <td>10</td>
+      <td>194.8</td>
+      <td>20.0</td>
+      <td>22.0</td>
+      <td>6.0</td>
+      <td>32.0</td>
+      <td>36.0</td>
+      <td>3.0</td>
+      <td>52083</td>
+      <td>5.0</td>
+      <td>2017-10-17</td>
+      <td>2017</td>
+      <td>October</td>
+      <td>Monday</td>
+    </tr>
+    <tr>
+      <td>286009</td>
+      <td>461724</td>
+      <td>millionaire pound cake</td>
+      <td>2008-02-12</td>
+      <td>2008</td>
+      <td>February</td>
+      <td>Monday</td>
+      <td>120</td>
+      <td>7</td>
+      <td>7</td>
+      <td>20</td>
+      <td>878.3</td>
+      <td>63.0</td>
+      <td>20.0</td>
+      <td>326.0</td>
+      <td>13.0</td>
+      <td>123.0</td>
+      <td>39.0</td>
+      <td>813055</td>
+      <td>5.0</td>
+      <td>2008-04-09</td>
+      <td>2008</td>
+      <td>April</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <td>475785</td>
+      <td>2202916</td>
+      <td>2000 meatloaf</td>
+      <td>2012-03-06</td>
+      <td>2012</td>
+      <td>March</td>
+      <td>Monday</td>
+      <td>90</td>
+      <td>17</td>
+      <td>13</td>
+      <td>10</td>
+      <td>267.0</td>
+      <td>30.0</td>
+      <td>29.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+      <td>48.0</td>
+      <td>2.0</td>
+      <td>2204364</td>
+      <td>5.0</td>
+      <td>2012-03-07</td>
+      <td>2012</td>
+      <td>March</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <td>475785</td>
+      <td>2202916</td>
+      <td>2000 meatloaf</td>
+      <td>2012-03-06</td>
+      <td>2012</td>
+      <td>March</td>
+      <td>Monday</td>
+      <td>90</td>
+      <td>17</td>
+      <td>13</td>
+      <td>10</td>
+      <td>267.0</td>
+      <td>30.0</td>
+      <td>29.0</td>
+      <td>12.0</td>
+      <td>12.0</td>
+      <td>48.0</td>
+      <td>2.0</td>
+      <td>221672</td>
+      <td>5.0</td>
+      <td>2012-03-21</td>
+      <td>2012</td>
+      <td>March</td>
+      <td>Tuesday</td>
+    </tr>
+    <tr>
+      <td>500166</td>
+      <td>2549237</td>
+      <td>5 tacos</td>
+      <td>2013-05-13</td>
+      <td>2013</td>
+      <td>May</td>
+      <td>Sunday</td>
+      <td>20</td>
+      <td>5</td>
+      <td>9</td>
+      <td>26</td>
+      <td>249.4</td>
+      <td>26.0</td>
+      <td>39.0</td>
+      <td>4.0</td>
+      <td>6.0</td>
+      <td>39.0</td>
+      <td>0.0</td>
+      <td>369715</td>
+      <td>4.0</td>
+      <td>2013-06-13</td>
+      <td>2013</td>
+      <td>June</td>
+      <td>Wednesday</td>
+    </tr>
+  </tbody>
+</table>
 ### Univariate Analysis 
 <body>
     <iframe src="assets/Histogram-Boxplot_of_calories.html" width=800 height=600 frameBorder=0></iframe>
