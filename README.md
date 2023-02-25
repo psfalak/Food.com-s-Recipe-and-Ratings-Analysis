@@ -44,8 +44,9 @@ print(recipes_cleaned.head().to_markdown(index=False))
 <body>
     <p>For our bivariate analysis, we wanted to get some more insight before we conduct a hypothesis test on our question. We decided to look at the propotion of ratings per year. We wanted to see if there was a significantly larger amount of ratings in a particular year, as well more of a particular rating in a certain year. Let's take a look at our findings.</p>
     <iframe src="assets/Proportion_of_Ratings_per_Year2.html" width=800 height=600 frameBorder=0></iframe>
-    <p>It is clear that the number of 5 star ratings is significantly higher than any other rating for every single year! Not only that, but we can see the amount of 1 star rating become more apparent as the years go on. For example, 2018 had a lot more one star ratings than 2008 did. </p>
+        <p>It is clear that the number of 5 star ratings is significantly higher than any other rating for every single year! Not only that, but we can see the amount of 1 star rating become more apparent as the years go on. For example, 2018 had a lot more one star ratings than 2008 did. </p>
     <iframe src="assets/Proportion_of_Ratings_per_Year3.html" width=800 height=600 frameBorder=0></iframe>
+        <p>When we look at the stacked bar chart for this plot, we can more clearly see that the amount of one star ratings has significantly increased as the years went on. Not only that, but we can see a significant drop in the number five star ratings from 2015-2016. This fact could help us understand our result when we run our hypothesis test to answer our underlining question! </p>
 </body>
 
 
@@ -55,9 +56,18 @@ print(recipes_cleaned.head().to_markdown(index=False))
 
 ## Assessment of Missingness
 
-**Temp text** We found that ratings was NMAR
+#### NMAR Analysis
+<body>
+When looking at our data, we observed that there was 3 columns that contained missing values: 'rating', 'description', and 'review'. Let's do some analysis on each of these columns to see if we believe are NMAR.
+</body>
+1. 'Rating' - We believe that rating column is in fact NMAR. In our original dataset, there was 6 different types of rating, ranging from 0 - 5. However, this was not due to the fact that reviews hated the dish so much that they gave the dish a 0. It was actually because they had left the section blank. When we converted these 0s to NaNs, we saw that there was a significant portion of the data missing for this column. We assumed this to be attributed to the fact that people did not like the recipe that they created, which would lead to a bad rating. Rather than them being rude to the person who posted the recipe, they would've decided just to leave it blank. Since the missingness is dependent on the value itself, we can conclude that the missingness in the 'rating' column is NMAR.
+2. 'Description' - This column had the second most missing values in dataset. However, there isn't really an explanation of why the column would be NMAR. We were curious to see if there was relation to the length of the description and the missingness, however, no relationship was found. Coupling this with the fact that we could not justify how the missingness was dependent on the description itself, we decided to conclude that the missingness for this column was MAR.
+3. 'Reviews' - The review column was definitely the trickiest in terms of determining if the data was NMAR. Initially we thought that if a person would leave a review blank, it was because they did not have nice things to say.
 
-<iframe src="assets/month_reviews.html" width=800 height=600 frameBorder=0></iframe>
+#### Missingneess Dependency
+
+
+<iframe src="assets/month_reviews1.html" width=800 height=600 frameBorder=0></iframe>
 
 
 This is a test to see the spacing 
