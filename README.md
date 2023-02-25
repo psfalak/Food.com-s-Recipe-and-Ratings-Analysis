@@ -27,7 +27,7 @@ We thought this would be a good question to answer because imagining the perspec
 The first step in our data cleaning process was to address the nan values present. Although description and review had a significant number of nan values, we chose to focus on the other columns with nans because we hypothesized that there are underlying missing mechanisms present with description and review. Therefore, we ended up dropping rows and filling in entries with placeholder values in order to ensure our analysis can continue. Afterwards we converted all of the columns into their correct datatypes respectively so we can correctly analyze the data later on. For columns like date and submitted, we decided to extract the year, month, and  day-of week into their own columns so we can investigate possible relationships later on. Similarily, we extracted the macronutrients individually from the nutrition column into their own columns respectively as well. Finally, just to  make our project easier, we created our own naming convention for the columns and also changed the order of the columns just so it is easier to refer to intuitively.
 
 
-(Note: description column and review column are not shown here for presentation sake)
+(Note: description, review, steps, tags, and ingredients column are not shown here for presentation sake)
 ```py
 print(recipes_cleaned.head().to_markdown(index=False))
 ```
