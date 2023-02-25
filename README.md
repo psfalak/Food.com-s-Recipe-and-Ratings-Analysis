@@ -67,14 +67,16 @@ When looking at our data, we observed that there was 3 columns that contained mi
 #### Missingneess Dependency
 
 
-<iframe src="assets/month_reviews1.html" width=800 height=600 frameBorder=0></iframe>
+<body>
+    <p>For our missingness, we chose to analyze the missingness in the 'reviews' column more closely. We wanted to see if the missingness of this column depended on any columns in our cleaned dataframe. We started by looking at the months. We thought this would be interesting to look at since there could be some trend around the holiday season where people are too lazy/more willing to give reviews. Let's unpack what we saw.</p>
+    <iframe src="assets/month_reviews1.html" width=800 height=600 frameBorder=0></iframe>
+        <p>From the graph, we can see that there are some values that are greater than our observed test statistic. However, when we run our permutation test, our p-value flucuates from .08 to around .2, indicating that we fail to reject our null hypothesis and say that there isn't a clear dependency of the 'review_submitted_month' column.</p>
+    <p>Since we couldn't determine dependencies in that column, we decided to look at the 'review_submitted_year' column. This is what we found. </p>
+    <iframe src="assets/year_reviews.html" width=800 height=600 frameBorder=0></iframe>
+        <p>We can see that observed statistic is very from the most of the data in the distribution. After we ran our permutation tests, we saw that the p value was 0.0, indicating that there was in fact a dependancy on this columnn!</p>
+        <p>When we examined our data more closely, we saw that out of the 57 missing values in the review column, only 4 came before 2015. The rest came between 2016-2018.</p>
+</body>
 
-
-This is a test to see the spacing 
-
-
-<iframe src="assets/year_reviews.html" width=800 height=600 frameBorder=0></iframe>
-This is another test to test spacing 
 <!-- Here's what a Markdown table looks like. Note that the code for this table was generated _automatically_ from a DataFrame, using
 
 <!-- ```py
@@ -93,6 +95,21 @@ print(counts[['Quarter', 'Count']].head().to_markdown(index=False))
 
 ## Hypothesis Testing
 
+To wrap up our analysis, we decided to go back and fully answer our original question: Is there a relationship between the number of reviews missing and the year that the reivew was submitted in?
+In order to test whether or not this is true, we will set up a hypothesis test to compare the difference in means of ratings of 2016, 2017 and 2018 compared to the rest of the population. That being said, we can define our alternative hypothesis as:
+**Null Hypothesis**:  the average of ratings from the years 2016, 2017, and 2018 = average of ratings from all other years
+**Alternative Hypothesis**:  the average of ratings from the years 2016, 2017, and 2018 < average of ratings from all other years
+the significance level will be at the 99% confidence level threshold so an alpha value of 0.01.
+
+For our test statistic we will use the difference in means because we are trying to compare the means of a sample to the rest of the population. Since we want to test if the ratings in 2016, 2017, and 2018 are significantly lower, we will not use the absolute in means because the direction of the test is important.
+
+After running our test, the distribution of the test statistics looked like this:
+
 <iframe src="assets/hypothesis_test.html" width=800 height=600 frameBorder=0></iframe>
 
+According to the results of our hypothesis test, we obtained a p-value of 0 which means that the probability that we obtained a test statistic under the null hypothesis as extreme in the direction of our alternative hypothesis is 0. That being said, we reject our null hypothesis that 2016, 2017, and 2018 recipes received average ratings as low as the rest of the population of recipes from other years.
+
+
+#### Back to our question : What types of recipes tend to have higher average ratings?
+As we originally observed from our EDA process and what we concluded from our hypothesis test, it appears that recipes from 2016, 2017 and 2018 scored lower ratings on average. That being said, this helps us answer our question because now we can observe that recipes that were submitted prior to 2016 tended to have higher average rating scores. Although we unfortunately can't isolate the reason why this is happening due to the number of confounding variables, it can help motivate another future step in this project to evaluate this phenomenon. If we also consider the number of reviews over the years, we observe a constant decrease in the number of reviews submitted since 2008. This additional piece of information could also help us analyze food.com's consumer base and possibly reveal other trends.
 ---
