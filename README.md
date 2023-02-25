@@ -14,34 +14,17 @@ by Patrick Salsbury (psalsbury@ucsd.edu) & Pukhraj Falak (pfalak@ucsd.edu)
 
 ## Introduction
 
-**TEMP** In this project, we examined how the calories, total fat, and protein impacted the rating of different recipes.
+For this project we were motivated to analyze the different relationships between variables within the two datasets that were gathered from Food.com. The first dataset involved information regarding recipes themselves while the second dataset kept track of all of the recipe reviews given by user. Utilizing a simple left-join, we can immediately enable analysis to begin within the 234,429 rows x 17 columns dataset. However, given all the number of experiment permutations we could perform, we decided to focus our project around investigating one single question.
 
-### **Question**
-Our analysis is centered around analyzing the distribution of missing food reviews throughout the years. We will look at the missingness in different *groups* of years and see if there is any relation between the two. Our two groups will be more recent years (2016 - 2018) and older years (2008 - 2016). 
-
-Our question will be **Is there a relationship between the number of reviews missing and the year that the reivew was submitted in?**
-
-We will be interested in the 'rating' column, which consists of a reviewers rating for a particular recipe, as well as the 'review_submitted_year' column, which consists of the year that the review was submitted ins.  
-
+### **Question: What type of recipes tend to have higher average ratings?**
+We thought this would be a good question to answer because imagining the perspective of a prospective chef, we would want to know what attributes or features increase the likeliness of a recipe rating higher. In addition, the question is broad enough that allows our analysis to be lenient and more exploratory rather than a linear set of investigative steps. That being said, we decided to look at the possible relationships between rating and a myriad of variables including: the total cooking minutes, number of steps, number of ingredients, calories, protein, total fat, the year the recipe was submitted, the month the recipe was submitted, the tags the recipe included, and the ingredients the recipe included.
 
 ---
 
 ## Cleaning and EDA
 
 ### Data Cleaning 
-The first step in our data cleaning process was to address the nan values present.
-Although description and review had a significant number of nan values, we chose to focus on
-the other columns with nans because we hypothesized that there are underlying
-missing mechanisms present with description and review. Therefore, we ended up 
-dropping rows and filling in entries with placeholder values in order to ensure
-our analysis can continue. Afterwards we converted all of the columns into their
-correct datatypes respectively so we can correctly analyze the data later on. For
-columns like date and submitted, we decided to extract the year, month, and 
-day-of-week into their own columns so we can investigate possible relationships
-later on. Similarily, we extracted the macronutrients individually from the
-nutrition column into their own columns respectively as well. Finally, just to 
-make our project easier, we created our own naming convention for the columns and 
-also changed the order of the columns just so it is easier to refer to intuitively.
+The first step in our data cleaning process was to address the nan values present. Although description and review had a significant number of nan values, we chose to focus on the other columns with nans because we hypothesized that there are underlying missing mechanisms present with description and review. Therefore, we ended up dropping rows and filling in entries with placeholder values in order to ensure our analysis can continue. Afterwards we converted all of the columns into their correct datatypes respectively so we can correctly analyze the data later on. For columns like date and submitted, we decided to extract the year, month, and  day-of week into their own columns so we can investigate possible relationships later on. Similarily, we extracted the macronutrients individually from the nutrition column into their own columns respectively as well. Finally, just to  make our project easier, we created our own naming convention for the columns and also changed the order of the columns just so it is easier to refer to intuitively.
 
 
 
